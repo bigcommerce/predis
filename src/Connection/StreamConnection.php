@@ -213,6 +213,14 @@ class StreamConnection extends AbstractConnection
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function isConnected()
+    {
+        return isset($this->resource) && !feof($this->resource);
+    }
+
+    /**
      * Initializes a SSL-encrypted TCP stream resource.
      *
      * @param ParametersInterface $parameters Initialization parameters for the connection.
